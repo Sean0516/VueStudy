@@ -38,7 +38,7 @@
 workspace.xml
 xcuserdata/
 target/
-.idea/
+.idea/*
 ipch/
 Debug/
 Release/
