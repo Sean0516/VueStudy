@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+    <h2>{{fullName}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "Sean",
+            lastName:"Demo"
+        },
+        // 计算属性会进行缓存，如果多次使用，计算属性只会调用一次 性能比 methods 高
+        computed:{
+            // fullName:function () {
+            //     return this.firstName + " " + this.lastName
+            // }
+            //计算属性一般没有set 方法 只读属性
+
+            fullName:{
+                set:function (newValue) {
+                    console.log("set value " + newValue)
+                },
+                get: function () {
+                    console.log('fullName');
+                    return this.firstName + " " + this.lastName
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

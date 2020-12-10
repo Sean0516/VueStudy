@@ -1,0 +1,28 @@
+1. mustache  响应式体验
+2. vue 列表展示
+    v-for
+3. 事件监听  :click->methods
+4. options  中可以放的东西
+    el：
+    data:
+    methods
+    生命周期函数
+5. 插值语法
+    mustache 语法
+    v-once
+    v-html
+    v-text
+    v-cloak
+6. v-bind 动态绑定基本属性
+    v-bind:src
+    :href
+7.v-bind 绑定calss
+    对象语法  :class={'类名 : boolean'}
+    数组语法
+8. v-bind 动态绑定style
+    同上
+
+9. 计算属性
+    computed
+10. 计算属性computed 和methods 对比
+    computed 会进行缓存，如果数据没有改变，只会调用一次，不会频繁调用

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .active {
+        color: aquamarine;
+    }，
+    .line {
+        color: #ff4256;
+    }
+</style>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--        <img v-bind:src="url"/>-->
+<!--        <a v-bind:href="urlOne">百度一下</a>-->
+
+    <!--    语法糖写法-->
+    <img :src="url"/>
+    <input type="text" :value="message"/>
+    <!-- 动态class 绑定 对象语法-->
+    <!--    <h2 :class="{active: true ,line: false }">Hello World</h2>-->
+    <h2 :class="getClass()">Hello World</h2>
+
+    <!-- 动态class 绑定 数组语法-->
+    <!--    <h2 :class="{active: true ,line: false }">Hello World</h2>-->
+    <h2 :class="[active , line]">Hello World</h2>
+
+<!--    动态绑定style-->
+<!--    <h2 :style="{key(属性名)： value (属性值)}"></h2>-->
+<!--    <h2 :style="{fontSize:'60px'}">{{message}}</h2>-->
+<!--    <h2 :style="{fontSize: fontSize ,backgroundColor: backColor}">{{message}}</h2>-->
+<!--    <h2 :style="getStyle()">{{message}}</h2>-->
+
+    <h2 :data-createtime="createTime">time</h2>
+
+
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "demo",
+            url: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+            urlOne: 'http://www.baidu.com',
+            active: 'active',
+            isActive: true,
+            isLine: false,
+            fontSize: '200px',
+            backColor:'blue',
+            createTime:'2020-12-09'
+        },
+        methods: {
+            getClass: function () {
+                return {active: this.isActive, line: this.isLine}
+            },
+            getStyle:function () {
+                return {fontSize: this.fontSize ,backgroundColor: this.backColor}
+            }
+        }
+    })
+</script>
+</body>
+</html>
