@@ -8,30 +8,44 @@
 <script src="../js/vue.js"></script>
 <div id="app">
     <h2>{{fullName}}</h2>
+    <h1>总价格: {{totalPrice}}</h1>
 </div>
 <script>
     const app = new Vue({
         el: "#app",
         data: {
             firstName: "Sean",
-            lastName:"Demo"
+            lastName: "Demo",
+            books: [
+                {name: "java 开发大全", price: 122},
+                {name: "Spring Boot 实战", price: 200},
+                {name: "Linux开发", price: 222}
+            ]
         },
         // 计算属性会进行缓存，如果多次使用，计算属性只会调用一次 性能比 methods 高
-        computed:{
-            // fullName:function () {
-            //     return this.firstName + " " + this.lastName
-            // }
+        computed: {
+
+            fullName: function () {
+                return this.firstName + " " + this.lastName
+            },
+            totalPrice(){
+                let result = 0
+                for (let book of this.books) {
+                    result += book.price
+                }
+                return  result
+            }
             //计算属性一般没有set 方法 只读属性
 
-            fullName:{
-                set:function (newValue) {
-                    console.log("set value " + newValue)
-                },
-                get: function () {
-                    console.log('fullName');
-                    return this.firstName + " " + this.lastName
-                }
-            }
+            // fullName: {
+            //     set: function (newValue) {
+            //         console.log("set value " + newValue)
+            //     },
+            //     get: function () {
+            //         console.log('fullName');
+            //         return this.firstName + " " + this.lastName
+            //     }
+            // }
         }
     })
 </script>

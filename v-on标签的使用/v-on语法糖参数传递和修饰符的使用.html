@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{message}}</h2>
+
+    <button @click="clickOne" :value="message2">ButtonOne</button>
+
+    <button @click="clickTwo(message ,$event )">ButtonTwo</button>
+    <br>
+
+    <div @click="onStop">
+        <button @click.stop="onStop">on Stop</button>
+    </div>
+
+    <br>
+    <input @keyup.enter="onEnter">onEnter</input>
+    <br>
+    <button @click.once="onOnce">On Once</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+//  当通过methods  中定义方法时，需要注意参数调用
+// 1. 如果该方法不需要额外参数,那么方法后的() 可以不添加。 需要注意的是, 如果方法本身中有一个参数,那么会默认将原生事件event 参数传递过去
+// 2. 如果需要同时传递某个参数，同时需要 event时，可以通过$event 传入事件
+
+
+// v-on 的修饰符
+// 1. @click.stop  停止冒泡
+// 2. @click.prevent  阻止默认行为
+// 3. @keyup.enter  键修饰符 ，键别名 键代码
+// 4. @click.once  点击回调只会触发一次
+
+    const app=new Vue({
+        el:"#app",
+        // 数据绑定
+        data:{
+            message:'demo',
+            message2:"Hello World"
+        },
+        methods:{
+            clickOne(event){
+                console.log("event",event);
+                console.log("event"+event.target.value);
+            },
+            clickTwo(message,event){
+                console.log("event ",event)
+                console.log("message is ",message);
+            },
+            onStop(){
+                console.log("on stop ")
+            },
+            onEnter(){
+                console.log("on enter ");
+            },
+            onOnce(){
+                console.log("on once ");
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>
