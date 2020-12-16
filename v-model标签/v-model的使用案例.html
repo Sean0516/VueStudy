@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="radio" id="man" value="男" v-model="sex"> 男
+    <input type="radio" id="female" value="女" v-model="sex"> 女
+    <h2>你的选择是：  {{sex}}</h2>
+
+    <br>
+
+    <input type="checkbox" value="大话西游" v-model="games"> 大话西游
+    <input type="checkbox" value="斗战神" v-model="games"> 斗战神
+    <input type="checkbox" value="英雄联盟" v-model="games"> 英雄联盟
+    <input type="checkbox" value="QQ飞车" v-model="games"> QQ飞车
+    <input type="checkbox" value="斗地主" v-model="games"> 斗地主
+    <h2>你选择的游戏是： {{games}}</h2>
+
+    <br>
+
+    <select v-model="fruits" multiple>
+        <option value="香蕉">香蕉</option>
+        <option value="苹果">苹果</option>
+        <option value="葡萄">葡萄</option>
+        <option value="橙子">橙子</option>
+    </select>
+    <h2>你选择的水果：  {{fruits}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+
+    const app=new Vue({
+        el:"#app",
+        // 数据绑定
+        data:{
+            sex:"男",
+            games:[],
+            fruits:[]
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>
+</html>
