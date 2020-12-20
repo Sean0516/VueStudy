@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <parent></parent>
+    <parent></parent>
+    <parent></parent>
+    <parent></parent>
+
+</div>
+<template id="child">
+    <div>
+        <h2>Hello Child </h2>
+    </div>
+</template>
+<template id="parent">
+    <div>
+        <h2>Hello Parent</h2>
+        <child></child>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+
+<script>
+    const  parent=Vue.extend({
+        template:"#parent",
+        components:{
+            child: {
+                template: "#child"
+            }
+        }
+    })
+    const app=new Vue({
+        el:"#app",
+        // 数据绑定
+        data:{
+        },
+        methods:{
+
+        },
+        components: {
+            parent:parent
+        }
+    })
+</script>
+
+</body>
+</html>
