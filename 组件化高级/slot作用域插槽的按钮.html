@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+    <cpn>
+        <!--        获取子组件的books 数据-->
+        <template slot-scope="slot" slot="demo">
+            <span>
+                {{slot.books.join("-")}}
+            </span>
+        </template>
+    </cpn>
+
+</div>
+<template id="demo">
+    <div>
+        <slot name="demo" :books="books">
+            <ul>
+                <li v-for="book in books">{{book}}</li>
+            </ul>
+        </slot>
+        <slot name="demo2" :books="books">
+            <ul>
+                <li v-for="book in books">{{book}} + h</li>
+            </ul>
+        </slot>
+    </div>
+</template>
+
+<!-- 父组件替换插槽的标签，但是内容由子组件提供 -->
+
+<script>
+
+    const cpn = {
+        template: "#demo",
+        data() {
+            return {
+                books: ["JAVA", "Python", "PHP"]
+            }
+        }
+
+    }
+    const app = new Vue({
+        el: "#app",
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>

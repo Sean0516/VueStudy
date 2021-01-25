@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+    <cpn ref="demo"></cpn>
+    <cpn></cpn>
+    <button @click="butClick">Button</button>
+</div>
+<template id="demo">
+  <div>
+      <h2>{{name}}</h2>
+      <ul>
+          <li v-for="item of books">{{item}}</li>
+      </ul>
+  </div>
+</template>
+<script>
+    const cpn = {
+        template: "#demo",
+        data() {
+            return {
+                name: "Hello World",
+                books: ["JAVA", "Python", "Linux"]
+            }
+        },
+        methods: {
+            showMessage() {
+                console.log("cpn show message ")
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: "#app",
+        methods: {
+            butClick() {
+                // $children  一般不推荐
+                // console.log(this.$children[0].name)
+                // this.$children[0].showMessage()
+                console.log(this.$refs.demo.name)
+            }
+        },
+        components: {
+            cpn
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>

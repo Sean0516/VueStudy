@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+    <cpn>
+        <i>
+            Demo
+        </i>
+    </cpn>
+    <cpn>
+        <button>提交</button>
+    </cpn>
+</div>
+<template id="demo">
+   <div>
+       <h2>Hello World</h2>
+       <slot><h2>
+           哈哈哈
+       </h2></slot>
+   </div>
+</template>
+<!-- 1. 插槽的使用<slot></slot>
+     2. 插槽的时间  <slot> <button>提交</button></slot>
+     3. 如果有多个值，同时放入到组件中进行替换，一起作为替换元素
+
+    -->
+
+<script>
+
+    const cpn = {
+        template: "#demo",
+
+    }
+    const app = new Vue({
+        el: "#app",
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>

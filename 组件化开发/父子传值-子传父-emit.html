@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+    <cpn @item-click="cpnClick"></cpn>
+</div>
+<template id="demo">
+    <div>
+        <button v-for="item in books " @click="btnClick(item)">{{item.name}}</button>
+    </div>
+</template>
+<script>
+    const cpn = {
+        template: "#demo",
+        data() {
+            return {
+                books: [
+                    {id: 100, name: "JAVA 并发编程"},
+                    {id: 101, name: "Python 网络爬虫"},
+                    {id: 102, name: "JAVA 基础"}
+                ]
+            }
+        },
+        methods: {
+            btnClick(item) {
+                this.$emit("item-click", item)
+            }
+        }
+    }
+    const app = new Vue({
+        el: "#app",
+        methods: {
+            cpnClick(item){
+                console.log('cpnClick',item.name);
+            }
+        },
+        components:{
+            cpn
+        }
+    })
+</script>
+
+</body>
+</html>

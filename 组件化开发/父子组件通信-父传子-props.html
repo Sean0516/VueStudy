@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <cpn v-bind:cmessage="message" :cbook="books"></cpn>
+</div>
+<template id="demo">
+    <div>
+        <h2>{{cmessage}}</h2>
+        <ul>
+            <li v-for="item in cbook "> {{item}}</li>
+        </ul>
+    </div>
+</template>
+<script>
+    const cpn = {
+        template: "#demo",
+        //  使用数组传参
+        // props: ['cmessage','cbook'],
+        props:{
+            // 1. 类型限制
+            // cmessage:String,
+            // cbook: Array
+            // 2. 默认值
+            cmessage: {
+                type:String,
+                default:"你好，生活"
+            },
+            cbook:{
+                type:Array
+            }
+        },
+        data() {
+            return {};
+        }
+    }
+    const app = new Vue({
+        el: "#app",
+        data: {
+            // message: "Hello World",
+            books:["JAVA","Linux","Python"]
+        },
+        components: {
+            cpn
+        }
+
+    })
+</script>
+</body>
+</html>

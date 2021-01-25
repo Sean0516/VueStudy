@@ -1,0 +1,13 @@
+模块化的核心为 到处和导入
+
+Common js 的导出
+
+module,export = {
+    flag:true,
+    sum(a,b){
+    return a + b ;
+}
+
+common js 的导入
+
+let (flag,sum) =require('module')

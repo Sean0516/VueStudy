@@ -1,0 +1,3 @@
+cl2 初始化项目
+ vue init webpack demo
+ vue create demo2
