@@ -12,7 +12,7 @@
 
     <!--    <button @click="homeClick">首页</button>-->
     <!--    <button @click="aboutClick">关于</button>-->
-    <keep-alive>
+    <keep-alive exclude="About">
       <router-view></router-view>
     </keep-alive>
   </div>

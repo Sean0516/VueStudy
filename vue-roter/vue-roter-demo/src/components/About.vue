@@ -5,6 +5,12 @@
 </template>
 <script>
 export default {
-  name: 'Obout',
+  name: 'About',
+  created() {
+    console.log('about create');
+  },
+  destroyed() {
+    console.log('about destroyed ');
+  }
 }
 </script>

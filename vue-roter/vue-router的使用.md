@@ -84,6 +84,13 @@ console.log('user enter ');
 ##### 组件内的守卫
 
 ### vue-router keep-alive
+- keep-alive 是vue 内置的一个组件，可以使被包含的组件保留状态，避免重新渲染
+##### 两个重要的属性：
+- include 字符串或正则表达式 ，只有匹配的组件会被缓存
+- exclude 字符串或正则表达式  任何匹配的组件都不会被缓存
+  
+- router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存
+
 
 
 
