@@ -67,10 +67,13 @@ const routes = [
 const router = new VueRouter({
     routes,
     // 将路由的模式修改为history 模式
-    mode: 'history'
+    mode: 'history',
+    // 设置项目名称
+    base:"demo"
 
     //linkActiveClass:""  统一active class  修改
 })
+// 全局导航守卫
 router.beforeEach((to, from, next) => {
     document.title = to.matched[0].meta.title
     next();
