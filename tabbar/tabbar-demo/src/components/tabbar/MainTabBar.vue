@@ -2,19 +2,19 @@
 
   <tab-bar>
     <tab-bar-item path="/home">
-      <img slot="icon" src="assets/img/bar/email.svg">
+      <img slot="icon" src="@/assets/img/bar/email.svg">
       <div slot="text">首页</div>
     </tab-bar-item>
     <tab-bar-item path="/category">
-      <img slot="icon" src="assets/img/bar/email.svg">
+      <img slot="icon" src="@/assets/img/bar/email.svg">
       <div slot="text">分类</div>
     </tab-bar-item>
     <tab-bar-item path="/car">
-      <img slot="icon" src="assets/img/bar/email.svg">
+      <img slot="icon" src="@/assets/img/bar/email.svg">
       <div slot="text">购物车</div>
     </tab-bar-item>
     <tab-bar-item path="/person">
-      <img slot="icon" src="assets/img/bar/email.svg">
+      <img slot="icon" src="@/assets/img/bar/email.png">
       <div slot="text">个人中心</div>
     </tab-bar-item>
   </tab-bar>

@@ -9,7 +9,11 @@
 <div id="app">
 
     <input type="text" v-model="message">
-    <h2>{{message}}</h2>
+    <h2 v-show="message==='1' ">1</h2>
+
+    <h2 v-show="message==='3' ">22222</h2>
+    <h2 v-show="message==='3' ">3---44</h2>
+    <h2 v-show="message==='4' ">4</h2>
     <br>
     <input type="text" :value="messageTwo" @input="messageTwo = $event.target.value">
     <h2>{{messageTwo}}</h2>
@@ -19,16 +23,14 @@
 
 <script>
 
-    const app=new Vue({
-        el:"#app",
+    const app = new Vue({
+        el: "#app",
         // 数据绑定
-        data:{
-            message:"Hello World",
-            messageTwo:"Hello World Two "
+        data: {
+            message: "Hello World",
+            messageTwo: "Hello World Two "
         },
-        methods:{
-
-        }
+        methods: {}
     })
 </script>
 </body>

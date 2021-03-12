@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+new  Promise((resolve, reject) => {
+    setTimeout(()=>{
+        console.log("set time out ");
+        resolve("Hello World ")
+        // reject("deal failed ")
+    },1000)
+}).then((date)=>{
+    console.log("set time out end date ",date)
+    new Promise(resolve => {
+        resolve("demo")
+    }).then(date=>{
+        console.log("date ",date)
+    })
+}).catch(err=>{
+    console.log("error msg :",err);
+})
+</script>
+</body>
+</html>
